@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "moment": "^2.31.0",
+    "moment-timezone": "^0.6.5",
     "next": "16.4.0",
     "react": "19.3.0",
     "react-dom": "19.3.0"
