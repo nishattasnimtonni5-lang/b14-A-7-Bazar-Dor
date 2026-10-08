@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+
 interface Nav{
    id:string,
     nameBn:string,
@@ -7,7 +7,9 @@ interface Nav{
     slug:string
 }
 const NavLinksPage = async() => {
-    const res=await fetch("https://api.abcz.workers.dev/api/bazardor/categories")
+    const res=await fetch(`https://api.abcz.workers.dev/api/bazardor/categories`
+    , {cache:"force-cache"})
+    
     const data:Nav[]=await res.json();
     return (
         <div className='flex gap-3 py-4'>
