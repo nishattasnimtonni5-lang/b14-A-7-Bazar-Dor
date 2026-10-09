@@ -1,17 +1,17 @@
 'use client'
-import moment from 'moment';
-import React, { useEffect, useState } from 'react';
+
 
 
 export default function Time  (){
-    const [date,setDate]=useState('')
-    useEffect(()=>{
-    setDate(moment().locale('bn').format('LL'));
-},[])
-
+   const today = new Date();
+    const formattedDate = new Intl.DateTimeFormat('bn-BD', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    }).format(today);
     return (
         <p>
-            {date}
+            {formattedDate}
         </p>
     );
 }

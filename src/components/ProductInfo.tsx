@@ -1,22 +1,35 @@
-import { ItemProps, ProductProps } from '@/types';
+
+
 import React from 'react';
 interface ProductInfoProps{
-    id:string |number
+    markets:Market[]
 }
-
-const ProductInfo = async({id}:ProductInfoProps) => {
-  const res=await fetch(`https://api.abcz.workers.dev/api/bazardor/products`
-     , {cache:"force-cache"});
-  const data=await res.json();
-  const singleProduct=data.find((item:ProductProps)=>item.id.toString()===id.toString());
-  const allMarkets=singleProduct?.markets||[];
+interface Market{
+  market:string,
+  division:string,
+  min:number,
+  max:number
+}
+const ProductInfo = ({markets}:ProductInfoProps) => {
+  
  
     return (
         <div>
             {
-                allMarkets.map((marketItems:ProductProps,index:number)=>
-                    <div key={index}>
-                        {marketItems.market}
+                markets.map((marketItems,index:number)=>
+                    <div key={index} className='grid grid-cols-5 border border-gray-500 py-5 px-5'>
+                
+                    <p> {marketItems.market}</p>
+                      
+                     
+                    
+                       <p>{marketItems.division}</p>
+                      
+                    
+                      <p> {(marketItems.min).toLocaleString("bn-BD")}</p>
+                     
+                      <p> {(marketItems.max).toLocaleString("bn-BD")}</p>
+                      <p>{((marketItems.max+marketItems.min)/2).toLocaleString("bn-BD")}</p>
                     </div>
                 )
             }

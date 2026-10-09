@@ -15,4 +15,7 @@ export interface ItemProps{
 export interface ProductProps{
     id:number |string ,
     market:string,
+    min:number,
+    max:number,
+    division:string
 }
