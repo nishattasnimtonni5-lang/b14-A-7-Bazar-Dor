@@ -1,18 +1,22 @@
-'use client'
+'use client';
 
+import { useEffect, useState } from 'react';
 
+export default function Time() {
+    const [formattedDate, setFormattedDate] = useState('');
 
-export default function Time  (){
-   const today = new Date();
-    const formattedDate = new Intl.DateTimeFormat('bn-BD', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
-    }).format(today);
-    return (
-        <p>
-            {formattedDate}
-        </p>
-    );
+    useEffect(() => {
+        const today = new Date();
+
+        const dateString = new Intl.DateTimeFormat('bn-BD', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+            timeZone: 'Asia/Dhaka',
+        }).format(today);
+
+        setFormattedDate(dateString);
+    }, []);
+
+    return <p>{formattedDate}</p>;
 }
-

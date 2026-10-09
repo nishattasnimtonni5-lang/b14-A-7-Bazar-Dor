@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import NavLinksPage from './NavLinks';
 
-import 'moment-timezone';
+
 
 import Time from './shared/Time';
 

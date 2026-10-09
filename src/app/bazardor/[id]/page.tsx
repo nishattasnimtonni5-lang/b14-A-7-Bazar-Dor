@@ -6,9 +6,10 @@ interface PageProps{
 }
 
 const page = async({params}:PageProps) => {
-  const {id}=await params;
+  const resolvedParams=await params;
+  const id=resolvedParams.id;
     const res=await fetch(`https://api.abcz.workers.dev/api/bazardor/products/${id}`
-   , {cache:"force-cache"})
+   , {cache:"no-cache"})
     const data=await res.json();
     return (
        
