@@ -11,6 +11,9 @@ const page = async({params}:PageProps) => {
     const res=await fetch(`https://api.abcz.workers.dev/api/bazardor/products/${id}`
    , {cache:"no-cache"})
     const data=await res.json();
+    if(!data){
+      notFound()
+    }
     return (
        
            <div className="">

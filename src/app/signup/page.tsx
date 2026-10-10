@@ -30,6 +30,16 @@ const SignupPage=()=> {
             }
         }
   }
+  const handleGoogleSignIn = async () => {
+      await authClient.signIn.social({
+        provider: "google",
+      });
+    };
+   const handleGithubSignIn = async () => {
+   await authClient.signIn.social({
+        provider: "github",
+      });
+    }
   return (
     <div className="min-h-screen bg-base-200 px-4 py-12">
       <ToastContainer/>
@@ -120,9 +130,11 @@ const SignupPage=()=> {
               >
                 অ্যাকাউন্ট তৈরি করুন
               </button>
-
+ 
             </form>
-
+<button onClick={handleGoogleSignIn} className="btn ">Sign In With Google</button>
+      <button onClick={handleGithubSignIn} className="btn ">Sign In With Github</button>
+    
           </div>
         </div>
       </div>

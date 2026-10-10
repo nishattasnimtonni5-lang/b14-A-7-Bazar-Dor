@@ -9,6 +9,9 @@ const AllCards = async () => {
         , {cache:"force-cache"})
     
      const data=await res.json();
+      if(!data){
+      notFound()
+    }
     return (
         <div className='grid grid-cols-3 gap-5 '>
             {
