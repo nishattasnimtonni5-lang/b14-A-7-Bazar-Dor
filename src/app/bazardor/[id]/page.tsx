@@ -1,3 +1,4 @@
+import NotFound from "@/app/not-found";
 import PriceSummary from "@/components/PriceSummary";
 import ProductInfo from "@/components/ProductInfo";
 
@@ -12,7 +13,7 @@ const page = async({params}:PageProps) => {
    , {cache:"no-cache"})
     const data=await res.json();
     if(!data){
-      notFound()
+      NotFound()
     }
     return (
        

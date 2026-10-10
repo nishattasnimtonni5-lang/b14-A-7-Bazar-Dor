@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import SingleCard from './SingleCard';
 import { ItemProps } from '@/types';
+import NotFound from '@/app/not-found';
 
 const AllCards = async () => {
     const res=await fetch(`https://api.abcz.workers.dev/api/bazardor/products`
@@ -10,7 +11,7 @@ const AllCards = async () => {
     
      const data=await res.json();
       if(!data){
-      notFound()
+      NotFound()
     }
     return (
         <div className='grid grid-cols-3 gap-5 '>
