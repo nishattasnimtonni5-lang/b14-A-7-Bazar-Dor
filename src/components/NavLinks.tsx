@@ -11,6 +11,7 @@ const NavLinksPage = async() => {
     , {cache:"force-cache"})
     
     const data:Nav[]=await res.json();
+    console.log(data.map((n) => n.icon));
     return (
         <div className='flex gap-3 py-4'>
            
@@ -19,7 +20,7 @@ const NavLinksPage = async() => {
                 <Link key={n.id} href={n.slug} >
              
              <div>
-              {n.icon}
+             {n.icon}
               {n.nameBn}
               </div>
                 </Link>
