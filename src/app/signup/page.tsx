@@ -3,7 +3,9 @@
 import { redirect } from "next/navigation"
 import { authClient } from "../lib/auth-client"
 import { toast, ToastContainer } from "react-toastify"
-
+import Link from "next/link";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 const SignupPage=()=> {
  
   const onSubmit =async(e:React.SubmitEvent<HTMLFormElement>)=>{
@@ -19,7 +21,7 @@ const SignupPage=()=> {
   
     
     if(data){
-    redirect("/")
+      redirect("/")
     }
     if (error) {
             
@@ -132,10 +134,20 @@ const SignupPage=()=> {
               </button>
  
             </form>
-<button onClick={handleGoogleSignIn} className="btn ">Sign In With Google</button>
-      <button onClick={handleGithubSignIn} className="btn ">Sign In With Github</button>
-    
+            <div className="flex items-center my-4">
+    <hr className="w-1/2 border-t  border-gray-400" />
+    <p className="px-3 text-gray-500 text-sm">অথবা</p>
+    <hr className="w-1/2 border-t  border-gray-400" />
+</div>
+            <div className="flex gap-3 items-center justify-center">
+<button onClick={handleGoogleSignIn} className="btn bg-gray-300 "><span><FcGoogle size={24} /></span>Sign In With Google</button>
+      <button onClick={handleGithubSignIn} className="btn bg-gray-300  "><span><FaGithub size={24} /></span>Sign In With Github</button>
+  </div>
+ 
+    <p className="flex items-center justify-center">অ্যাকাউন্ট আছে?  <Link href={`/signin`} className="text-green-700">সাইন ইন করুন</Link>
+       </p> 
           </div>
+          <p className="text-center py-3"><Link href={`/`}>← হোম পেজে ফিরে যান </Link></p>
         </div>
       </div>
     </div>

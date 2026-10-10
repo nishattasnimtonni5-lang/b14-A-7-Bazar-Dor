@@ -23,7 +23,7 @@ const PriceSummary = ({markets}:ProductInfoProps) => {
          market.min>highest.max?market:highest
     )
     return (
-        <div className="py-5">
+        <div className="py-5 px-5">
         <div
         className="grid grid-cols-3 rounded-lg bg-amber-200 px-5 py-5">
             <div className="">

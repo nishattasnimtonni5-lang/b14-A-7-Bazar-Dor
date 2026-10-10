@@ -16,8 +16,8 @@ const page = async({params}:PageProps) => {
       NotFound()
     }
     return (
-       
-           <div className="">
+       <div className="py-8">
+           <div className="px-5">
                 <div className="flex justify-between bg-amber-100 px-10  py-3 rounded-lg items-center"> 
                   <div className="flex flex-cols-1  h-30 gap-4 rounded-lg  items-center">
                 
@@ -51,10 +51,11 @@ const page = async({params}:PageProps) => {
                 
                   </div>
                  </div>
+              </div>
                  <PriceSummary markets={data.markets??[]}/>
                  <ProductInfo markets={data.markets??[]}/>
-          </div>
-      
+        
+      </div>
     );
 };
 

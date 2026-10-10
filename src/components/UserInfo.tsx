@@ -22,7 +22,7 @@ const UserInfo = () => {
               <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
                 <img
                   alt="Tailwind-CSS-Avatar-component"
-                  src={user?.image as string}
+                  src={user?.image || "/default-avatar.png"}
                 />
               </div>
             </div>

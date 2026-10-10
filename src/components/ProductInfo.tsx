@@ -14,7 +14,7 @@ const ProductInfo = ({markets}:ProductInfoProps) => {
   
  
     return (
-        <div>
+        <div className='px-5'>
             {
                 markets.map((marketItems,index:number)=>
                     <div key={index} className='grid grid-cols-5 border border-gray-500 py-5 px-5'>
