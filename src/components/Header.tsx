@@ -19,14 +19,18 @@ const HeaderPage = () => {
                
                <div> 
                 <p className='font-extrabold'>বাজার দর</p>
-                <Time/> <hr/>
+                <Time/>
+                 
             </div>
+            
        <div>
+        
            <UserInfo/>
               </div>
          </div>
           </div>
           <NavLinksPage/>
+          <hr className='mt-2 max-w-full'/>
         </div>
     );
 };

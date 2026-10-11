@@ -9,6 +9,7 @@ export default function Time() {
         const today = new Date();
 
         const dateString = new Intl.DateTimeFormat('bn-BD', {
+            weekday:'long',
             day: 'numeric',
             month: 'long',
             year: 'numeric',

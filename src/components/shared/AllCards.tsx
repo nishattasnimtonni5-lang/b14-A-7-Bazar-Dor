@@ -22,7 +22,7 @@ const AllCards = async () => {
     return(
     <div className='space-y-8'>
         <section className='px-5'>
-            <h2 className='font-bold text-xl py-2'>আজ দাম বেড়েছে</h2>
+            <h2 className='font-bold text-xl py-2'><span className=" text-red-600 rounded px-2 py-1"> ▲ </span>আজ দাম বেড়েছে</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {
                     increasedItems.map((item:ItemProps)=>
@@ -33,7 +33,7 @@ const AllCards = async () => {
             </div>
         </section>
         <section className='px-5'>
-            <h2 className='font-bold text-xl py-2'>আজ দাম কমেছে</h2>
+            <h2 className='font-bold text-xl py-2'><span className=" text-green-600 rounded px-2 py-1">  ▼ </span>আজ দাম কমেছে</h2>
             <div className="grid grid-cols-3 gap-5">
                 {
                     decreasedItems.map((item:ItemProps)=>
