@@ -8,9 +8,9 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 const SignupPage=()=> {
  
-  const onSubmit =async(e:React.SubmitEvent<HTMLFormElement>)=>{
+  const onSubmit =async(e:React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault()
-    const formData=new FormData(e.target);
+    const formData=new FormData(e.currentTarget);
     console.log("Form data ",[...formData.entries()]);
     const user =Object.fromEntries(formData.entries()) as{name:string,email:string,image:string,password:string}
     
@@ -21,6 +21,7 @@ const SignupPage=()=> {
   
     
     if(data){
+      toast.error("Account created successfully!");
       redirect("/")
     }
     if (error) {
@@ -33,14 +34,20 @@ const SignupPage=()=> {
         }
   }
   const handleGoogleSignIn = async () => {
-      await authClient.signIn.social({
+      const { error } = await authClient.signIn.social({
         provider: "google",
       });
+      if (error) {
+        toast.error(error.message || "Google sign in failed.");
+      }
     };
    const handleGithubSignIn = async () => {
-   await authClient.signIn.social({
+   const { error } = await authClient.signIn.social({
         provider: "github",
       });
+      if (error) {
+        toast.error(error.message || "Github sign in failed.");
+      }
     }
   return (
     <div className="min-h-screen bg-base-200 px-4 py-12">

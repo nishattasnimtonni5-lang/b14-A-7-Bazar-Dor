@@ -19,7 +19,7 @@ const NavLinksPage = async () => {
     const data: Nav[] = await res.json();
 
     return (
-        <div className="flex flex-wrap gap-3 py-4">
+        <div className="flex flex-wrap gap-3 py-10 md:py-4">
 
             {
                 data.map((n: Nav) =>

@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import SingleCard from "./SingleCard";
+
 import { ItemProps } from "@/types";
+
+import SingleCard from "./SingleCard";
 
 interface SortProductsProps {
     products: ItemProps[];
@@ -43,7 +45,7 @@ const SortProducts = ({ products }: SortProductsProps) => {
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-                {sortedProducts.map((item) => (
+                {sortedProducts.map((item:ItemProps) => (
                     <SingleCard key={item.id} item={item} />
                 ))}
             </div>

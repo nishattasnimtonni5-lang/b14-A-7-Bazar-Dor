@@ -1,18 +1,18 @@
 'use client'
 
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { authClient } from "../lib/auth-client";
 import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
 
-const SigninPage=()=> {
-  const router=useRouter();
-  const onSubmit = async (e: React.SubmitEvent<HTMLElement>) => {
-    e.preventDefault();
+const SigninPage = () => {
+  const router = useRouter();
 
-    const formData = new FormData(e.target);
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData.entries()) as {
       email: string;
       password: string;
@@ -24,7 +24,7 @@ const SigninPage=()=> {
     });
 
     if (error) {
-      toast.error("Sign in failed!");
+      toast.error(error.message || "Sign in failed!");
       console.log(error);
       return;
     }
@@ -36,26 +36,31 @@ const SigninPage=()=> {
   };
 
   const handleGoogleSignIn = async () => {
-    await authClient.signIn.social({
+    const { error } = await authClient.signIn.social({
       provider: "google",
     });
+    if (error) {
+      toast.error(error.message || "Google sign in failed!");
+    }
   };
 
   const handleGithubSignIn = async () => {
-    await authClient.signIn.social({
+    const { error } = await authClient.signIn.social({
       provider: "github",
     });
+    if (error) {
+      toast.error(error.message || "Github sign in failed!");
+    }
   };
 
   return (
     <div className="min-h-screen bg-base-200 px-4 py-12">
+      <ToastContainer />
       <div className="mx-auto max-w-lg">
-
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-extrabold text-base-content">
             সাইন ইন
           </h1>
-
           <p className="mt-2 text-base-content/60">
             বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।
           </p>
@@ -63,13 +68,11 @@ const SigninPage=()=> {
 
         <div className="card border border-base-300 bg-base-100 shadow-sm">
           <div className="card-body gap-4">
-
             <form onSubmit={onSubmit} className="space-y-4">
               <fieldset className="fieldset">
                 <label className="label">
                   <span className="label-text">ইমেইল</span>
                 </label>
-
                 <input
                   type="email"
                   name="email"
@@ -84,7 +87,6 @@ const SigninPage=()=> {
                 <label className="label">
                   <span className="label-text">পাসওয়ার্ড</span>
                 </label>
-
                 <input
                   type="password"
                   name="password"
@@ -121,23 +123,21 @@ const SigninPage=()=> {
               </button>
             </div>
 
-            <p className="flex items-center justify-center">
-              অ্যাকাউন্ট আছে?
-              <Link href={`/signin`} className="text-green-700">
-                সাইন ইন করুন
+            <p className="flex items-center justify-center gap-1">
+              অ্যাকাউন্ট নেই?
+              <Link href="/signup" className="text-green-700">
+                সাইন আপ করুন
               </Link>
             </p>
- <p className="text-center py-3">
-          <Link href={`/`}>← হোম পেজে ফিরে যান</Link>
-        </p>
+
+            <p className="text-center py-3">
+              <Link href="/">← হোম পেজে ফিরে যান</Link>
+            </p>
           </div>
         </div>
-
-       
-
       </div>
     </div>
   );
-}
+};
 
 export default SigninPage;
