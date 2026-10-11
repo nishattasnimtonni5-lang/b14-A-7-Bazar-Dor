@@ -3,6 +3,9 @@ export interface ItemProps{
     nameBn:string,
     image:string,
     slug:string,
+    category:string,
+    categoryIcon:string,
+    categoryNameBn:string,
     id:number |string,
     params:{
         id:number,

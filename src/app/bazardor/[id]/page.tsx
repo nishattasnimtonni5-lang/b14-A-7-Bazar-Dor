@@ -1,6 +1,7 @@
 import NotFound from "@/app/not-found";
 import PriceSummary from "@/components/PriceSummary";
 import ProductInfo from "@/components/ProductInfo";
+import Link from "next/link";
 
 interface PageProps{
     params:Promise<{id:string}>
@@ -46,7 +47,7 @@ const page = async({params}:PageProps) => {
                 
                  <div>
                   <h4>আজকের দাম</h4>
-                  <h4 className="text-green-500 font-extrabold text-3xl">{(data.today).toLocaleString("bn-BD")} </h4>
+                  <h4 className="text-green-500 font-extrabold text-3xl">{Number(data.today).toLocaleString("bn-BD")} </h4>
                   <h4>টাকা / কেজি</h4>
                 
                   </div>
@@ -54,7 +55,7 @@ const page = async({params}:PageProps) => {
               </div>
                  <PriceSummary markets={data.markets??[]}/>
                  <ProductInfo markets={data.markets??[]}/>
-        
+         <p className="text-center py-3"><Link href={`/`}>← হোম পেজে ফিরে যান </Link></p>
       </div>
     );
 };

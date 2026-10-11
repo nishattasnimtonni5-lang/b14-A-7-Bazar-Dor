@@ -17,7 +17,7 @@ const NavLinksPage = async() => {
            
            {
             data.map((n:Nav)=>
-                <Link key={n.id} href={n.slug} >
+                <Link key={n.id} href={`/bazardor/category/${n.slug}`} >
              
              <div>
              {n.icon}

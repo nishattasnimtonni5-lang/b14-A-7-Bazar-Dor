@@ -3,7 +3,8 @@ import Marquee from "react-fast-marquee"
 interface Headlines{
     id:number,
     nameBn:string,
-    today:number
+    today:number,
+    categoryIcon:string,
  change:{   pct:number}
     
 }
@@ -15,7 +16,7 @@ const MarqueePage = async() => {
         <div className='text-black py-5 '>
             <Marquee>
             {data.map  ((item:Headlines)=><span key={item.id} className="flex gap-3">
-            
+            <span>{item.categoryIcon}</span>
                 <span>{item.nameBn}</span>
                 
                  <span>{Number(item.today).toLocaleString("bn-BD")} টাকা/কেজি</span>
