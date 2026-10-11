@@ -23,7 +23,7 @@ const AllCards = async () => {
     <div className='space-y-8'>
         <section className='px-5'>
             <h2 className='font-bold text-xl py-2'>আজ দাম বেড়েছে</h2>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {
                     increasedItems.map((item:ItemProps)=>
                     <Link href={`/bazardor/${item.id}`} key={item.id}>
