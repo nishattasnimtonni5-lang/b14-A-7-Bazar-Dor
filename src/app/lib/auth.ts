@@ -4,7 +4,7 @@ import { mongodbAdapter } from "@better-auth/mongo-adapter";
 import { Resend } from "resend";
 
 const client = new MongoClient(process.env.MONGODB_URL as string);
-const db = client.db("Bazar-Dor");
+const db = client.db("Bazar-dor");
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const auth = betterAuth({
