@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 বাজার দর (BazarDor)
 
-## Getting Started
+##  About The Project
 
-First, run the development server:
+BazarDor is a website where users can check the prices of different daily necessities, such as vegetables, fish, and other market products. Users can see the price differences between products and get an idea of which products are cheaper or more expensive in the market.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Users can also create an account and sign in to the website.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##  Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* HTML
+* CSS
+* JavaScript
+* React
+* Tailwind CSS
+* Firebase Authentication
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+##  Key Features
 
-## Learn More
+1. **Product Price Checking**
+   Users can check the prices of different products, including vegetables, fish, and other daily market items.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Price Comparison**
+   Users can compare product prices to understand which products are cheaper or more expensive.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **User Sign Up**
+   New users can create an account to access the website.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **User Sign In**
+   Registered users can sign in to their accounts.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. **Easy-to-Use Interface**
+   The website provides a simple interface so users can easily find product prices and get useful market information.

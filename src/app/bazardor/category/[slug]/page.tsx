@@ -1,7 +1,6 @@
-import SingleCard from "@/components/shared/SingleCard";
+import SortProducts from "@/components/shared/SortProducts";
 import { ItemProps } from "@/types";
-import Link from 'next/link';
-
+import Link from "next/link";
 
 const CategoryPage = async ({
   params,
@@ -31,7 +30,9 @@ const CategoryPage = async ({
     <main className="p-5">
       <div className="bg-base-200 rounded-2xl p-6 mb-6 shadow-sm">
         <div className="flex items-center gap-4">
-          <span className="text-4xl">{category.categoryIcon}</span>
+          <span className="text-4xl">
+            {category.categoryIcon}
+          </span>
 
           <div>
             <h3 className="text-2xl font-bold">
@@ -45,13 +46,13 @@ const CategoryPage = async ({
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-        {filteredProducts.map((item) => (
-          <SingleCard key={item.id} item={item} />
-        ))}
-    
-      </div>
-       <p className="text-center py-7 "><Link href={`/`}>← হোম পেজে ফিরে যান </Link></p>
+      <SortProducts products={filteredProducts} />
+
+      <p className="text-center py-7">
+        <Link href="/">
+          ← হোম পেজে ফিরে যান
+        </Link>
+      </p>
     </main>
   );
 };
