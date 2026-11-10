@@ -23,7 +23,7 @@ Technologies Used
 - Next.js
 - TypeScript
 - Tailwind CSS
-- BetterAuth
+- better-auth
 
 Key Features
 
@@ -60,7 +60,7 @@ Follow these steps to run the project locally.
 
 1. Clone the repository
 
-git clone YOUR_REPOSITORY_LINK
+git clone https://github.com/nishattasnimtonni5-lang/b14-A-7-Bazar-Dor
 
 2. Navigate to the project directory
 
